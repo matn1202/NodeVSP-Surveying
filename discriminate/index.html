@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NodeVSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="top"></header>
+<main data-arm="game">
+  <div id="play" hidden>
+    <div class="game-head">
+      <h1 data-i18n="game.h"></h1>
+      <span class="progress" id="progress"></span>
+    </div>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    <p class="lead" data-i18n="game.prompt"></p>
+    <blockquote class="brief-text" id="brief" lang="en" tabindex="0"></blockquote>
+    <p class="note" data-i18n="game.lang"></p>
+    <div class="options" id="options"></div>
+    <p class="verdict" id="verdict" role="status"></p>
+    <p class="err" id="unsaved" hidden data-i18n="game.unsaved"></p>
+    <button type="button" class="btn primary" id="next" hidden></button>
+  </div>
+
+  <section class="card done" id="end" hidden>
+    <h2 data-i18n="game.h"></h2>
+    <p class="score" id="score"></p>
+    <div class="actions">
+      <button type="button" class="btn primary" id="again" data-i18n="game.again"></button>
+      <a class="btn ghost" data-nav="/" data-i18n="brief.back"></a>
+    </div>
+  </section>
+
+  <p class="err" id="fail" role="alert" hidden data-i18n="game.error"></p>
+</main>
+<footer class="foot"></footer>
+<script type="module">
+  import { init } from '/app/chrome.js';
+  import { t } from '/app/copy.js';
+  import { catalogue, briefs, stillImgs, shuffle } from '/app/stimulus.js';
+  import { submit } from '/app/submit.js';
+
+  const $ = (s) => document.querySelector(s);
+  const TOTAL = 10;
+  init('title.game');
+
+  let cat, pool, rounds, at, score;
+
+  // Ten distinct source models; each round's four options are four distinct
+  // models (the source plus three others), so no model appears twice in a round
+  // and none is the answer twice in a game.
+  // ponytail: distractors are uniform-random. Same-class distractors (airliner
+  // among airliners) would make the game harder and the score more sensitive.
+  function deal() {
+    const ids = Object.keys(cat);
+    return shuffle(Object.keys(pool).filter((i) => i in cat)).slice(0, TOTAL).map((id) => {
+      const levels = Object.keys(pool[id]);
+      const brief = pool[id][levels[Math.floor(Math.random() * levels.length)]];
+      const others = shuffle(ids.filter((i) => i !== id)).slice(0, 3);
+      return { id, brief, options: shuffle([id, ...others]) };
+    });
+  }
+
+  function render() {
+    const r = rounds[at];
+    $('#progress').textContent = t('game.round', { n: at + 1, total: TOTAL });
+    $('#bar').style.width = `${(at / TOTAL) * 100}%`;
+    $('#brief').textContent = r.brief;
+    $('#brief').scrollTop = 0;
+    $('#verdict').textContent = '';
+    $('#verdict').className = 'verdict';
+    $('#unsaved').hidden = true;
+    $('#next').hidden = true;
+    $('#options').replaceChildren(...r.options.map((id, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'option';
+      b.dataset.id = id;
+      const letter = document.createElement('span');
+      letter.className = 'letter';
+      letter.textContent = t('game.option', { letter: 'ABCD'[i] });
+      const sils = document.createElement('div');
+      sils.className = 'sils';
+      stillImgs(id).forEach((img) => {
+        const f = document.createElement('figure');
+        f.append(img);
+        sils.append(f);
+      });
+      b.append(letter, sils);
+      b.addEventListener('click', () => answer(b));
+      return b;
+    }));
+  }
+
+  function answer(btn) {
+    const r = rounds[at];
+    const right = btn.dataset.id === r.id;
+    if (right) score++;
+    document.querySelectorAll('.option').forEach((o) => {
+      o.disabled = true;
+      o.classList.toggle('is-correct', o.dataset.id === r.id);
+    });
+    if (!right) btn.classList.add('is-wrong');
+    $('#verdict').textContent = t(right ? 'game.right' : 'game.wrong');
+    $('#verdict').className = `verdict ${right ? 'ok' : 'no'}`;
+    // The record carries the brief's source model (`id`) and its exact text, which
+    // is what attributes the score to a brief and level upstream. The server works
+    // out `correct` itself.
+    submit({ arm: 'discriminate', id: r.id, brief: r.brief, answer: btn.dataset.id })
+      .catch((e) => { console.error(e); $('#unsaved').hidden = false; });
+    const last = at === TOTAL - 1;
+    $('#next').textContent = t(last ? 'game.finish' : 'game.next');
+    $('#next').hidden = false;
+    $('#next').focus();
+  }
+
+  function advance() {
+    if (++at < rounds.length) return render();
+    $('#play').hidden = true;
+    $('#end').hidden = false;
+    $('#score').textContent = t('game.score', { n: score, total: rounds.length });
+    $('#again').focus();
+  }
+
+  function start() {
+    rounds = deal();
+    at = 0;
+    score = 0;
+    $('#end').hidden = true;
+    $('#play').hidden = false;
+    render();
+  }
+
+  $('#next').addEventListener('click', advance);
+  $('#again').addEventListener('click', start);
+  try {
+    [cat, pool] = await Promise.all([catalogue(), briefs()]);
+    start();
+  } catch (e) {
+    console.error(e);
+    $('#fail').hidden = false;
+  }
+</script>
+</body>
+</html>

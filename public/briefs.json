@@ -1,0 +1,179 @@
+{
+ "008054a5": {
+  "design": "A single-engine lightweight multirole fighter, 9.45 m span and 15 m long, modelled in very high detail: a cropped-delta blended wing-body with root strakes, a ventral inlet, a bubble canopy, one tall fin with ventral strakes, all-moving horizontal tails and wingtip rails -- plus the external detail a mesh for a flight simulator needs. Blade aerials and antennae, the gun port and its shell-ejection fairing, formation light strips, an in-flight refuelling receptacle, airbrakes, and separate leading-edge flap, flaperon and rudder surfaces. Use strong section-to-section blending where the wing meets the body."
+ },
+ "023751df": {
+  "design": "A subsonic single-engine jet trainer in dimensionless units, about 9.4 m span and 11.9 m long: low swept wing, a slim fuselage with a stepped bubble canopy, and lateral engine inlets whose ducts are modelled as separate internal bodies running back to the engine face. Conventional swept fin and a mid-set horizontal tail. The inlet duct is the interesting part."
+ },
+ "05ecfc0c": {
+  "design": "A wide-body outsize-cargo freighter, about 60 m span and 63 m long: a normal airliner's lower fuselage with an enormous bulbous cargo hold grafted on top, so the flight deck sits below and ahead of the cargo deck. Low-mounted swept wing, two turbofan nacelles on underwing pylons, and a horizontal tail carrying a small extra vertical fin at each tip in addition to the main fin."
+ },
+ "08e64c3d": {
+  "design": "A two-seat all-metal aerobatic kitplane, 7.6 m span and 6.2 m long: a low constant-chord wing with squared-off tips, a slim fuselage with a sliding canopy, a nose-mounted piston engine with a spinner and constant-speed propeller, fixed tricycle gear with wheel fairings and leg fairings, ailerons and flaps marked on the wing, and a swept fin with a low horizontal tail. Set the wing incidence and dihedral to the real airframe's values rather than to zero."
+ },
+ "09a859cd": {
+  "design": "A four-seat single-engine low-wing composite light aeroplane, 11.7 m span and 7.9 m long: a low wing with pronounced dihedral and upturned tips, a nose-mounted piston engine with a spinner and three-blade propeller, a wide cabin with a one-piece windscreen, fixed tricycle gear with streamlined leg and wheel fairings, and a swept fin with a low horizontal tail. Include ailerons and flaps as marked control surfaces."
+ },
+ "0cc24a65": {
+  "design": "A single-engine fifth-generation stealth fighter, 10.7 m span and 15.7 m long: a trapezoidal wing blended into a broad chined forward fuselage, a faceted canopy, two canted vertical fins, all-moving horizontal tails, and one engine fed by an inlet on each side of the fuselage above the wing root."
+ },
+ "0e8f58df": {
+  "design": "A high-speed compound helicopter, roughly 12 m rotor diameter and 13 m long: a main rotor above a streamlined cabin, plus a box-wing arrangement on each side -- an upper and a lower wing panel joined at the tip -- with a lateral pusher propeller at each junction. A tail boom with a fin and a horizontal stabiliser."
+ },
+ "16cf443c": {
+  "design": "A fixed-wing VTOL unmanned aircraft of 15 kg maximum weight, roughly 2.5 m span: a straight wing, a slim fuselage with twin booms and an H-tail, four vertically-mounted lift rotors on arms and one forward-facing cruise propeller. Model every propeller as a flat thin plate disk rather than as solid blades, so the result is usable as a game or simulator asset. Exact sizes and real aerofoils."
+ },
+ "1a6e64ac": {
+  "design": "A very small two-seat composite kitplane, about 7 m span and 6.4 m long: a short low wing, a tightly-faired fuselage with a bubble canopy, a small piston engine with a spinner, retractable tricycle gear, and a swept fin with a low horizontal tail. Add the wing-root fillets, gear door fairings and small external fairings as their own slender bodies. A rough model for comparing dimensions against other kitplanes."
+ },
+ "1cb76820": {
+  "design": "A large twin-aisle widebody passenger jet, about 60 m span and 57 m long: low swept wing with raked tips, two large turbofans on underwing pylons, a swept fin and a low swept horizontal tail. A clean reference shape, not a detailed replica."
+ },
+ "21118743": {
+  "design": "A WWII high-wing single-engine piston liaison and special-operations aircraft, 15.2 m span and 9.3 m long. The wing planform is the interesting part: the chord grows outboard of the root before tapering to a rounded tip, so the inner panel is reverse-tapered. A radial cowling with a spinner, a tall rounded fin, and fixed main gear on faired legs with large wheel spats carrying small stub wings. External shape only."
+ },
+ "2a2e0631": {
+  "design": "A crewed lifting-body spaceplane, about 8.9 m long and 4.5 m across, dimensioned in inches: a flat-bottomed, rounded-top body that generates the lift itself, with a sharply pointed nose, small stubby delta wings low at the rear, a centre fin and two outboard fins canted outward. No engines visible, very low aspect ratio throughout -- the body IS the wing. It is fitted to a laser scan of a wind tunnel model, so the body cross-sections are the careful part."
+ },
+ "2a843ac8": {
+  "design": "A four-seat low-wing piston twin of all-metal construction, 11 m span and 7.7 m long: a low wing with two slim engine nacelles and two-blade propellers, retractable tricycle gear, a slim fuselage, and a swept fin with a low horizontal tail."
+ },
+ "2a9d3a1a": {
+  "design": "A light single-engine utility helicopter, 8.05 m main rotor diameter and about 9.4 m long: a distinctive egg-shaped fuselage pod with a pointed nose, a slim tapering tail boom, a five-blade main rotor, a two-blade tail rotor, a T-shaped tail with endplate fins, and skid landing gear."
+ },
+ "2ce96268": {
+  "design": "A single-aisle narrow-body airliner, about 34 m span and 39.5 m long. Low-mounted wing swept roughly 25 degrees, two turbofans on underwing pylons with the fan face represented as a rotating disk, a swept fin, and a low-set swept horizontal tail. Built for shape rather than for analysis."
+ },
+ "2da9e8a5": {
+  "design": "A hybrid wing body airliner with no distinct fuselage at all: a wide, thick centrebody that blends smoothly into swept outer wing panels, about 66 m span. Build it entirely from lifting surfaces -- the centrebody as a very low aspect ratio thick wing section, the outer panels swept back from it -- with no body geometry and no horizontal tail."
+ },
+ "34701bfb": {
+  "design": "A high-wing twin-turboprop regional airliner, 29 m span and 25 m long. Two turboprop nacelles on the wing leading edge with six-blade propellers, main gear retracting into fuselage-side fairings, a tall fin and a horizontal tail low on the rear fuselage."
+ },
+ "34ca500d": {
+  "design": "A simple experimental light aeroplane, roughly 10 m span and 7 m long, built from nothing but a wing, one fuselage and a tail: a single wing, a slender high-fineness-ratio fuselage, and a conventional fin and horizontal tail. A quick conceptual shape thrown together for aerodynamic analysis, not a detailed aircraft."
+ },
+ "3b6093bf": {
+  "design": "A large twin-engine fifth-generation stealth fighter with canards, about 13 m span and 20.3 m long: a delta main wing, a pair of close-coupled canard foreplanes ahead of it, a chined forward fuselage, twin canted all-moving vertical fins, ventral strakes, and diverterless bumps on the side inlets."
+ },
+ "3dd71f24": {
+  "design": "A large twin-engine air-superiority fighter, 14.7 m span and 21.9 m long: a wide blended centre fuselage that carries lift, leading-edge root extensions ahead of a swept wing, two widely-spaced engine nacelles under the aft body with a tunnel between them, twin canted vertical fins, and all-moving horizontal tails."
+ },
+ "4237bf86": {
+  "design": "A midsize business jet, 22.6 m span and 19 m long: low swept wing, two turbofans on stub pylons at the sides of the rear fuselage, a flat-floor cabin fuselage of oval cross-section, and a T-tail with the horizontal surface at the top of a swept fin."
+ },
+ "4615a2cb": {
+  "design": "A regional passenger turboprop, about 27 m span and 23 m long: high straight wing with two turboprops on the leading edge, a T-tail, and a circular-section fuselage. A clean reference shape; include the propeller as a disk."
+ },
+ "4edf9135": {
+  "design": "A two-seat wooden aerobatic sport aeroplane, 8 m span and 6.5 m long, dimensioned in millimetres from a construction manual: a low tapered wing, a slim fuselage with a sliding bubble canopy, a small piston engine with a spinner and two-blade propeller, retractable tricycle gear, and a rounded fin and rudder."
+ },
+ "4fb9057e": {
+  "design": "A very light business jet, 12.1 m span and 12.7 m long, distinctive for mounting its two turbofans on pylons ABOVE the wing rather than on the rear fuselage. Low swept wing, a natural-laminar-flow nose, and a T-tail."
+ },
+ "557e10fe": {
+  "design": "A conventional narrow-body passenger transport jet, about 35 m span and 38 m long: low swept wing, two turbofans on underwing pylons, a swept fin and a low swept horizontal tail. A clean, unadorned reference shape rather than a detailed replica."
+ },
+ "55d0211d": {
+  "design": "A four-seat single-engine high-wing light aeroplane, 11 m span and 8.3 m long: a strut-braced high wing with slight dihedral and constant chord over most of the span, a nose-mounted piston engine, a cabin with a wraparound rear window, fixed tricycle landing gear, and a swept fin with a low horizontal tail. Built for real-time flight simulation, so overall proportions matter most."
+ },
+ "589ddc63": {
+  "design": "A 60 kg eVTOL unmanned aircraft, roughly 3 m span: a fixed wing and tail for cruise plus five rotors -- four for lift, mounted on arms out from the fuselage, and one for forward flight. A slim fuselage, many small structural and mounting bodies, and datum points marking every rotor hub."
+ },
+ "58c35635": {
+  "design": "A twin-boom VTOL unmanned aircraft, roughly 3 m span: a small central fuselage pod, a straight wing with a tapered outer panel carrying two tail booms, and a horizontal tail spanning between the booms with a fin on each. Build the booms as slender bodies -- there is no boom primitive. A conceptual aerodynamic design, so keep it simple."
+ },
+ "5f27c75d": {
+  "design": "A single-seat competition sailplane, 15 m span and 6.8 m long, dimensioned to about 1 mm accuracy from a three-view: a very high aspect ratio wing with a thin laminar aerofoil and slight dihedral, a slender teardrop fuselage with a long canopy, a T-tail, no engine, and a single retractable main wheel under the fuselage. Zero wing twist; set incidence for best glide."
+ },
+ "605a38d6": {
+  "design": "A distributed-electric-propulsion experimental aeroplane in simplified form, dimensioned in inches: a four-seat light twin fuselage with a high aspect ratio wing of about 9.6 m span carrying twelve small motor nacelles along the leading edge and a larger nacelle at each tip -- but the nacelles as plain streamlined bodies with no propellers modelled. Swept fin with a low horizontal tail. A redacted reference outer mould line, so smooth and unadorned."
+ },
+ "62f2fbc5": {
+  "design": "A WWII single-engine piston fighter, 11.3 m span and 9.8 m long: a low laminar-flow wing with squared tips, a slim fuselage with a large radiator scoop under the belly aft of the wing, a spinner and four-blade propeller at the nose, a bubble canopy, and a conventional tail with a tall fin."
+ },
+ "6bd244c4": {
+  "design": "A blended-wing-body passenger jet: a wide lifting centrebody fairing continuously into swept outer wings, roughly 40 m span, with no conventional tube fuselage and no horizontal tail. Engines above the aft centrebody."
+ },
+ "6e60ccfd": {
+  "design": "A four-seat light piston twin of composite construction, 13.4 m span and 8.6 m long: a low wing of high aspect ratio with two slim engine nacelles and three-blade propellers, retractable tricycle gear, a slender fuselage with a long glazed canopy, and a T-tail. Include occupant figures. Model the engine nacelles as simple pod bodies rather than as fuselage-type geometry."
+ },
+ "7123e59a": {
+  "design": "A two-seat low-wing composite ultralight, 8.4 m span and 6.3 m long: a low tapered wing with upturned tips, a very streamlined narrow fuselage with a bubble canopy, a small piston engine with a spinner and three-blade propeller, retractable tricycle gear, and a swept fin with a low horizontal tail. Built from a two-view image, so the side and top outlines are what matter."
+ },
+ "73de2d2b": {
+  "design": "A compound high-speed helicopter, 10.4 m rotor diameter and about 11 m long: two coaxial counter-rotating rigid main rotors stacked above the fuselage, a pusher propeller at the very tail for forward thrust, a sleek fuselage with a stepped cockpit, a cruciform tail with a horizontal stabiliser and twin fins, and retractable wheeled gear. General configuration matters more than fine detail."
+ },
+ "752d7392": {
+  "design": "A four-seat single-engine high-wing light aeroplane about 11 m span and 8.8 m long -- the same family as a basic trainer but with a larger nose-mounted piston engine and a taller cowling. Strut-braced high wing, fixed tricycle gear, a swept fin and a low horizontal tail. Model the wheel pants, the gear leg fairings and the wing strut as their own bodies."
+ },
+ "79072ef0": {
+  "design": "A two-seat light sport aircraft concept to the FAA definition, 600 kg maximum weight, roughly 9 m span and 6.5 m long: a wing, a slim fuselage with a bubble canopy, a small piston engine with a tractor propeller, and a conventional tail. Include two seated occupant figures in the cabin to show the layout."
+ },
+ "85cb6bca": {
+  "design": "A generic transport aircraft in dimensionless units, deliberately not any particular type. Low swept wing, two engine nacelles each on an underwing pylon, a gear pod fairing on the belly, a swept fin and a horizontal tail. Use mirror symmetry for the nacelles and pylons rather than building each side, attach them to the wing so they follow it, and group the components into named sets by the kind of propulsion analysis each belongs to."
+ },
+ "87278ad2": {
+  "design": "A medium-altitude long-endurance unmanned aircraft, 20 m span and 11 m long: a very high aspect ratio straight wing, a slender fuselage with a bulged satellite-communication nose fairing and a ventral sensor turret, a V-tail plus a ventral fin, a dorsal air inlet on the aft fuselage, and a turboprop driving a pusher propeller at the tail. Distinct root and tip aerofoils."
+ },
+ "909628ca": {
+  "design": "A four-seat single-engine low-wing light aeroplane, 9.8 m span and 7.3 m long, 1315 kg gross: a low wing with a constant-chord inboard panel and a tapered outer panel, a 235 hp piston engine in the nose with a spinner and a two-blade constant-speed propeller (include the propeller disk as well as the blades), fixed and faired tricycle landing gear, and a swept fin with a low horizontal tail."
+ },
+ "923c42c7": {
+  "design": "A very small single-seat experimental kit aeroplane, about 6.4 m span and 4.9 m long, dimensioned in inches: a low straight wing, a tiny fuselage barely wider than the pilot, a nose-mounted piston engine with a two-blade propeller, a conventional fin and horizontal tail, and fixed tricycle landing gear with exposed wheels and legs."
+ },
+ "97084e8a": {
+  "design": "A high-wing twin-turboprop STOL utility aeroplane, 19.8 m span and 15.8 m long: an unswept high wing with two turboprop nacelles and three-blade propellers, a long slab-sided fuselage with a squared nose, fixed tricycle landing gear on faired legs, double-slotted flaps, and a tall fin with a low horizontal tail. Include a seated occupant figure for scale."
+ },
+ "b81b19a8": {
+  "design": "A WWII single-engine piston carrier fighter with an inverted gull wing -- the wing root angles sharply down from the fuselage, then the outer panel angles back up with dihedral. 12.5 m span, 10.2 m long. A large radial engine cowling with a spinner and a big propeller, a bubble canopy well aft, and a conventional tail. Provide the fuselage in two variants: plain, and with the engine bay open."
+ },
+ "bbb91e25": {
+  "design": "A four-seat piston twin used as a multi-engine trainer, 11.8 m span and 8.4 m long: a low wing with two engine nacelles and counter-rotating two-blade propellers, retractable tricycle gear, and a T-tail with the horizontal surface at the top of the fin."
+ },
+ "bee78d96": {
+  "design": "A twin-engine carrier-based multirole fighter, 11.4 m span and 17.1 m long: a trapezoidal wing with large leading-edge root extensions, twin canted vertical fins, all-moving horizontal tails, two engines side by side in the aft fuselage with rectangular side inlets, and a pointed nose radome."
+ },
+ "c5c1cb50": {
+  "design": "A WWII single-engine piston fighter with a near-elliptical wing planform, 11.2 m span and 9.8 m long: a thin elliptical wing with rounded tips, a slim tapering fuselage, a spinner and a large propeller, underwing radiator fairings, and a rounded fin and rudder. Built from a three-view outline, so the planform shapes are what matter."
+ },
+ "ca6d92ae": {
+  "design": "A twin-boom push-pull light twin, 11.6 m span and 9.1 m long: a central fuselage pod with one piston engine and tractor propeller in the nose and a second engine with a pusher propeller behind the cabin, a high strut-braced wing carrying two tail booms, and a horizontal tail spanning between the booms with a vertical fin on each boom. The two fins are NOT mirror images of each other -- build each as its own half-span surface with its own chord and sweep."
+ },
+ "cb029c7c": {
+  "design": "A narrow-body airliner reimagined with a truss-braced wing: a fuselage about 39 m long and a conventional tail of ordinary single-aisle size, but a very high aspect ratio wing of roughly 52 m span mounted high on the fuselage and carried by a strut running from the lower fuselage out to mid-span. Two turbofans on underwing pylons inboard of the strut. The truss is not sized by calculation -- make it look structurally plausible."
+ },
+ "cd71b747": {
+  "design": "A small canard homebuilt, 6.8 m span and 4.3 m long: a swept main wing set at the rear with a vertical winglet at each tip, a straight foreplane on the nose, a slim fuselage with a bubble canopy, and a pusher piston engine with a propeller behind the wing. Built from published specifications to improve understanding of the solver, so keep it clean."
+ },
+ "d374426e": {
+  "design": "A regional jet for about 80 seats: 28.7 m span, 31.7 m long. Low swept wing with tall winglets, two turbofans on underwing pylons, a swept fin with the horizontal tail on the rear fuselage, and a belly fairing along the wing-body junction. Overall shape matters more than aerofoil detail."
+ },
+ "dc4cf361": {
+  "design": "A high-wing four-engine turboprop military transport, 40.4 m span and 29.8 m long. Unswept wing carrying four turboprops, a deep constant-section cargo fuselage with a rounded nose and an upswept tail cone over a rear ramp, a tall fin with a low horizontal tail, and main gear in blister fairings on the fuselage sides."
+ },
+ "dc7a077b": {
+  "design": "A small twin-engine lifting-body light aircraft: a wide blended fuselage that carries lift itself rather than a slender tube, short stubby outer wing panels, two turboprop nacelles with spinners, and twin vertical fins. Roughly 12 m span. An experimental configuration, not conventional tube-and-wing."
+ },
+ "e3b7164e": {
+  "design": "A compact single-seat ultralight, roughly 8 m span and 5 m long, dimensioned in millimetres: a low wing, a short rounded fuselage with a bubble canopy, a small engine, and deliberately small tail surfaces -- the fin and horizontal tail are undersized, which is why this shape is noted as marginal in both lateral and longitudinal stability. Good-looking and compact rather than well-behaved."
+ },
+ "e623a496": {
+  "design": "A cabin-class piston twin for about nine seats, 13.4 m span and 11 m long: a low straight wing with two nacelle-mounted piston engines and wingtip fuel tanks, a slim fuselage with a row of cabin windows, retractable tricycle gear, and a swept fin with a low horizontal tail. High-resolution -- get the proportions off three-views rather than approximating."
+ },
+ "efad35c4": {
+  "design": "A light-intermediate twin-engine transport helicopter, 12.1 m main rotor diameter and about 14.6 m long: a rounded cabin fuselage with a stepped nose and large windows, a long tail boom, a main rotor above the cabin, a tail rotor on a vertical pylon, a horizontal stabiliser on the boom, and retractable wheeled landing gear. Build the fuselage from several blended bodies and model both rotors."
+ },
+ "f97922a4": {
+  "design": "A large supersonic variable-sweep strategic and maritime strike bomber, about 34 m span spread and 42 m long: a broad fixed wing glove with pivoting outer panels, two engines buried in the aft fuselage behind large side inlets, a tall swept fin, low horizontal tails, and four large air-launched ballistic missiles carried externally under the fuselage and wing gloves."
+ },
+ "fd2cf5cd": {
+  "design": "An air-launched suborbital spaceplane: a cabin fuselage about 18 m long with a straight wing of roughly 8 m span, and twin tail booms carrying tall fins with a horizontal surface between them. The whole wing-and-boom assembly hinges upward about 60 degrees into a high-drag re-entry configuration -- model that hinge so both the glide and the feathered positions can be shown."
+ },
+ "fd9bbd7b": {
+  "design": "A straight-wing twin-engine close air support attack aircraft, 17.5 m span and 16.3 m long: an unswept low wing with drooped outer panels and large underwing pylons, two turbofan nacelles mounted high on the sides of the rear fuselage, twin vertical fins on a wide horizontal tail, and a rotary cannon protruding ahead of the nose gear."
+ },
+ "fdbb3242": {
+  "design": "A high-wing twin-turboprop regional airliner, about 21 m span and 21 m long: a high straight wing with two turboprop nacelles on the leading edge and large six-blade propellers, a squarish fuselage cross-section, main gear retracting into belly fairings, and a T-tail."
+ }
+}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NodeVSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="top"></header>
+<main>
+  <section class="about">
+    <div class="about-inner">
+      <div class="about-copy">
+        <div class="about-brand"><span class="hero-mark"></span><span class="wordmark">NodeVSP</span></div>
+        <p class="eyebrow" data-i18n="about.eyebrow"></p>
+        <h2 data-i18n="about.h"></h2>
+        <p class="lead" data-i18n="about.lead"></p>
+        <ul class="about-points">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M4 10H1M4 14H1M23 10h-3M23 14h-3"/></svg>
+            <span data-i18n="about.1"></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 3 2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="m18 14 .9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></svg>
+            <span data-i18n="about.2"></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 4 9 4.5-9 4.5-9-4.5z"/><path d="M7 11v4.6c0 1 2.2 2.4 5 2.4s5-1.4 5-2.4V11"/></svg>
+            <span data-i18n="about.3"></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-art">
+        <svg viewBox="0 0 640 400" role="img" data-i18n-attr="aria-label:about.art" class="wf">
+          <g class="wf-body">
+            <path class="wf-line" d="M66 200Q104 176 186 175L452 175Q545 176 596 197L604 200L596 203Q545 224 452 225L186 225Q104 224 66 200Z"/>
+            <path class="wf-line" d="M282 178 384 56 434 60 402 178Z"/>
+            <path class="wf-line" d="M282 222 384 344 434 340 402 222Z"/>
+            <path class="wf-line" d="M500 182 548 130 578 134 546 186Z"/>
+            <path class="wf-line" d="M500 218 548 270 578 266 546 214Z"/>
+            <path class="wf-line" d="M498 200 582 200"/>
+            <rect class="wf-line" x="316" y="98" width="46" height="26" rx="13"/>
+            <rect class="wf-line" x="316" y="276" width="46" height="26" rx="13"/>
+          </g>
+          <g class="wf-dims">
+            <path class="wf-dim wf-d1" d="M66 366 604 366M66 360v12M604 360v12"/>
+            <path class="wf-dim wf-d2" d="M616 56 616 344M610 56h12M610 344h12"/>
+          </g>
+          <g class="wf-nodes">
+            <circle class="wf-node wf-n1" cx="66" cy="200" r="6"/>
+            <circle class="wf-node wf-n2" cx="282" cy="178" r="6"/>
+            <circle class="wf-node wf-n3" cx="384" cy="56" r="6"/>
+            <circle class="wf-node wf-n4" cx="434" cy="60" r="6"/>
+            <circle class="wf-node wf-n5" cx="548" cy="130" r="6"/>
+            <circle class="wf-node wf-n6" cx="604" cy="200" r="6"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <h1 data-i18n="home.h"></h1>
+    <p class="lead" data-i18n="home.lead"></p>
+  </section>
+
+  <section class="card consent">
+    <h2 data-i18n="consent.h"></h2>
+    <ul>
+      <li data-i18n="consent.1"></li>
+      <li data-i18n="consent.2"></li>
+      <li data-i18n="consent.3"></li>
+      <li data-i18n="consent.4"></li>
+    </ul>
+    <label class="check"><input type="checkbox" id="agree"><span data-i18n="consent.check"></span></label>
+  </section>
+
+  <section id="tasks" hidden>
+    <h2 data-i18n="home.pick"></h2>
+    <p class="code"><span data-i18n="consent.code"></span> <code id="pid"></code></p>
+    <div class="arms">
+      <a class="arm" data-arm="model" data-nav="/brief.html?arm=D_human_model">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+        <h3 data-i18n="arm.model.name"></h3>
+        <p data-i18n="arm.model.desc"></p>
+        <span class="go" data-i18n="arm.go"></span>
+      </a>
+      <a class="arm" data-arm="photo" data-nav="/brief.html?arm=D_human_photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        <h3 data-i18n="arm.photo.name"></h3>
+        <p data-i18n="arm.photo.desc"></p>
+        <span class="go" data-i18n="arm.go"></span>
+      </a>
+      <a class="arm" data-arm="game" data-nav="/discriminate/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+        <h3 data-i18n="arm.game.name"></h3>
+        <p data-i18n="arm.game.desc"></p>
+        <span class="go" data-i18n="arm.go"></span>
+      </a>
+    </div>
+  </section>
+</main>
+<footer class="foot"></footer>
+<script type="module">
+  import { init, MARK } from '/app/chrome.js';
+  import { participant } from '/app/submit.js';
+  import * as store from '/app/store.js';
+  init('title.home');
+  document.querySelector('.hero-mark').innerHTML = MARK;
+  const agree = document.querySelector('#agree');
+  const tasks = document.querySelector('#tasks');
+  const sync = () => {
+    tasks.hidden = !agree.checked;
+    if (agree.checked) document.querySelector('#pid').textContent = participant();
+    store.set('consent', agree.checked ? '1' : '');
+  };
+  agree.checked = store.get('consent') === '1';
+  agree.addEventListener('change', sync);
+  sync();
+</script>
+</body>
+</html>

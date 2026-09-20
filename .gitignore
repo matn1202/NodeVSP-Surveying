@@ -1,0 +1,14 @@
+# Agent working context. Private, same convention as NodeVSP's repo root.
+CLAUDE.md
+
+# Never commit an aircraft photograph. A copyrighted image in public history is
+# not undone by a later `git rm`. Photos are served from a blob store; this repo
+# holds URLs only. See CLAUDE.md, "Photographs".
+public/photos/**
+!public/photos/.gitkeep
+
+# Local env / tooling
+.env
+.env.local
+.vercel/
+node_modules/

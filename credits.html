@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NodeVSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="top"></header>
+<main>
+  <h1 data-i18n="credits.h"></h1>
+  <p class="lead" data-i18n="credits.lead"></p>
+  <ul class="names" id="names"></ul>
+  <p class="err" id="err" role="alert" hidden data-i18n="credits.error"></p>
+</main>
+<footer class="foot"></footer>
+<script type="module">
+  import { init } from '/app/chrome.js';
+  init('title.credits');
+  try {
+    const names = await (await fetch('/public/credits.json')).json();
+    // Names only, alphabetical -- never paired with a title or id (CLAUDE.md).
+    names.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+      .forEach((n) => document.querySelector('#names').append(Object.assign(document.createElement('li'), { textContent: n })));
+  } catch { document.querySelector('#err').hidden = false; }
+</script>
+</body>
+</html>

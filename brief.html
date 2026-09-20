@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NodeVSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<!-- The three.js examples import the bare specifier "three"; map it to the same pinned URL viewer.js uses, so there is one instance. -->
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="top"></header>
+<main id="task">
+  <span class="badge" id="badge"></span>
+  <h1 id="h"></h1>
+  <p class="lead" id="prompt"></p>
+
+  <div class="task-grid">
+    <section id="stimulus">
+      <div id="viewer" hidden></div>
+      <p class="note" id="viewer-note"></p>
+      <div class="sils" id="stills"></div>
+      <div class="pics" id="pics"></div>
+      <p class="empty" id="none" hidden data-i18n="photos.none"></p>
+    </section>
+
+    <form class="card" id="form">
+      <label class="field" for="brief" data-i18n="brief.label"></label>
+      <textarea id="brief" data-i18n-attr="placeholder:brief.placeholder"></textarea>
+      <div class="meta" id="count"></div>
+      <div class="hints" id="hints" aria-live="polite"></div>
+      <div class="actions">
+        <button type="submit" class="btn primary" id="send" data-i18n="brief.submit" disabled></button>
+        <button type="button" class="btn ghost" id="skip" data-i18n="brief.skip"></button>
+      </div>
+      <p class="err" id="err" role="alert" hidden data-i18n="brief.error"></p>
+    </form>
+
+    <section class="card done" id="done" hidden>
+      <h2 data-i18n="brief.thanks"></h2>
+      <div class="actions">
+        <button type="button" class="btn primary" id="another" data-i18n="brief.another"></button>
+        <a class="btn ghost" data-nav="/" data-i18n="brief.back"></a>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="foot"></footer>
+<script type="module">
+  import { init } from '/app/chrome.js';
+  import { t, link } from '/app/copy.js';
+  import { catalogue, photos, unlistedPhotos, pick, stillImgs, objUrl } from '/app/stimulus.js';
+  import { hints } from '/app/validate.js';
+  import { submit } from '/app/submit.js';
+
+  const $ = (s) => document.querySelector(s);
+  const ARMS = { D_human_model: 'model', D_human_photo: 'photo' };
+  const arm = new URLSearchParams(location.search).get('arm');
+  if (!ARMS[arm]) location.replace(link('/'));
+  const kind = ARMS[arm];
+
+  init('title.brief');
+  $('#task').dataset.arm = kind;
+  $('#badge').textContent = t(`brief.${kind}.badge`);
+  $('#h').textContent = t(`brief.${kind}.h`);
+  $('#prompt').textContent = t(`brief.${kind}.prompt`);
+
+  let id, viewer, pool, run = 0;
+  let unlisted = new Set(); // ids with no corpus model: same task, different arm
+
+  async function next() {
+    const mine = ++run; // a skip while a model is still loading must not leave two canvases
+    viewer?.dispose();
+    viewer = null;
+    $('#done').hidden = true;
+    $('#form').hidden = false;
+    $('#stimulus').hidden = false;
+    $('#brief').value = '';
+    update();
+    for (const sel of ['#stills', '#pics', '#viewer']) $(sel).replaceChildren();
+    $('#viewer').hidden = true;
+    $('#viewer-note').textContent = '';
+
+    if (!pool) {
+      if (kind === 'model') pool = await catalogue();
+      else {
+        const [corpus, extra] = await Promise.all([photos(), unlistedPhotos()]);
+        unlisted = new Set(Object.keys(extra));
+        pool = { ...corpus, ...extra };
+      }
+    }
+    const ids = Object.keys(pool).filter((i) => kind === 'model' || pool[i].length);
+    if (!ids.length) {
+      $('#none').hidden = false;
+      $('#form').hidden = true;
+      return;
+    }
+    id = pick(ids, arm);
+
+    if (kind === 'photo') {
+      pool[id].forEach(({ url, credit }) => {
+        const f = document.createElement('figure');
+        f.append(Object.assign(new Image(), { src: url, alt: t('brief.photo.badge') }));
+        if (credit) f.append(Object.assign(document.createElement('figcaption'), { textContent: credit }));
+        $('#pics').append(f);
+      });
+      return;
+    }
+
+    // The 3D model is the stimulus. three.js loads with it, so a WebGL or CDN failure
+    // falls back to the two baked stills rather than leaving the participant blind.
+    const box = $('#viewer'), note = $('#viewer-note');
+    box.hidden = false; // needs a size before three.js measures it
+    note.textContent = t('view3d.loading');
+    try {
+      const { mountViewer } = await import('/app/viewer.js');
+      const v = await mountViewer(box, objUrl(id));
+      if (mine !== run) return v.dispose();
+      viewer = v;
+      note.textContent = t('view3d.hint');
+    } catch (e) {
+      console.error(e);
+      if (mine !== run) return;
+      box.hidden = true;
+      note.textContent = t('view3d.error');
+      stillImgs(id).forEach((img) => {
+        const f = document.createElement('figure');
+        const c = document.createElement('figcaption');
+        c.textContent = img.alt;
+        f.append(img, c);
+        $('#stills').append(f);
+      });
+    }
+  }
+
+  // Hints only ever inform. The button is disabled for an EMPTY box alone.
+  function update() {
+    const v = $('#brief').value;
+    const words = v.trim() ? v.trim().split(/\s+/).length : 0;
+    $('#count').textContent = t('brief.count', { chars: [...v].length, words });
+    const hs = hints(v);
+    const box = $('#hints');
+    box.replaceChildren();
+    if (hs.length) {
+      box.append(Object.assign(document.createElement('p'), { textContent: t('hint.lead') }));
+      const ul = document.createElement('ul');
+      hs.forEach((h) => ul.append(Object.assign(document.createElement('li'), { textContent: t(`hint.${h.kind}`, h) })));
+      box.append(ul);
+    }
+    $('#send').disabled = !v.trim();
+    $('#skip').hidden = !!v.trim();
+  }
+  $('#brief').addEventListener('input', update);
+
+  $('#form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const send = $('#send');
+    send.disabled = true;
+    send.textContent = t('brief.sending');
+    $('#err').hidden = true;
+    try {
+      const sent = unlisted.has(id) ? 'D_human_photo_unlisted' : arm;
+      await submit({ arm: sent, id, brief: $('#brief').value });
+      $('#form').hidden = true;
+      $('#stimulus').hidden = true;
+      $('#done').hidden = false;
+      $('#another').focus();
+    } catch (err) {
+      console.error(err);
+      $('#err').hidden = false; // the text stays in the box
+      send.disabled = false;
+    } finally {
+      send.textContent = t('brief.submit');
+    }
+  });
+  $('#skip').addEventListener('click', next);
+  $('#another').addEventListener('click', next);
+  next();
+</script>
+</body>
+</html>

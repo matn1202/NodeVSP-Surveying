@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- Page driven by render_stills.mjs: not linked from the survey, and never shown to a participant. -->
+<html>
+<head>
+<meta charset="utf-8">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
+<style>
+  html, body { margin: 0; background: transparent; }
+  #viewer { width: 640px; height: 480px; }
+</style>
+</head>
+<body>
+<div id="viewer"></div>
+<script type="module">
+  import { mountViewer } from '/app/viewer.js';
+  import { objUrl } from '/app/stimulus.js';
+  const DIRS = { front: [-1.4, -1.6, 0.9], rear: [1.4, 1.6, 0.9] };
+  let v;
+  // Mounts the model from one side; the driver screenshots #viewer, then calls done().
+  window.show = async (id, view) => {
+    v = await mountViewer(document.querySelector('#viewer'), objUrl(id), { dir: DIRS[view], distance: 2.3 });
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+  };
+  window.done = () => v?.dispose();
+</script>
+</body>
+</html>
